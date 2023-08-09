@@ -1,13 +1,13 @@
 #az vm list-sizes --location eastus -o table
 
 $vmLocation = 'eastus'
-$vmName = 'VM-02'
+$vmName = 'VM-01'
 $vmRG = 'VM-rg'
 $vmSize = 'Standard_B1s'
 $vmImage = 'Ubuntu2204'
 $vmStorage = 'Standard_LRS'
 
-az vm create `
+az vm create `--
     --name $vmName `
     --resource-group $vmRG `
     --size $vmSize `

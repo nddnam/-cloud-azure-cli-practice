@@ -1,0 +1,37 @@
+#cloud-config
+#
+# This is an example file to configure an instance's trusted CA certificates
+# system-wide for SSL/TLS trust establishment when the instance boots for the
+# first time.
+#
+# Make sure that this file is valid yaml before starting instances.
+# It should be passed as user-data when starting the instance.
+
+ca_certs:
+  # If present and set to True, the 'remove_defaults' parameter will either
+  # disable all the trusted CA certifications normally shipped with
+  # Alpine, Debian or Ubuntu. On RedHat, this action will delete those
+  # certificates.
+  # This is mainly for very security-sensitive use cases - most users will not
+  # need this functionality.
+  remove_defaults: true
+
+  # If present, the 'trusted' parameter should contain a certificate (or list
+  # of certificates) to add to the system as trusted CA certificates.
+  # Pay close attention to the YAML multiline list syntax.  The example shown
+  # here is for a list of multiline certificates.
+  trusted: 
+  - |
+   -----BEGIN CERTIFICATE-----
+   MIIB/TCCAYKgAwIBAgIUWmFGlM1U4SZ2M0c6V2sTM0U1Ob4wCgYIKoZIzj0EAwQw
+   FjEUMBIGA1UEAwwLRWFzeS1SU0EgQ0EwHhcNMjMwODA5MDgwMTIxWhcNMzMwODA2
+   MDgwMTIxWjAWMRQwEgYDVQQDDAtFYXN5LVJTQSBDQTB2MBAGByqGSM49AgEGBSuB
+   BAAiA2IABELMUweM5FLECCzRHVNPPoYLWgpTpJjELR7/ibKrjubZLyM7f0koFkxq
+   zBDf6e1sXEIen5Ko3rqgYXciijnCE/wuLATdEvbO3Uz58+eyH7rVomRXHFapXKZ9
+   esKSq94jyaOBkDCBjTAdBgNVHQ4EFgQUrqlIoIy46heSFbjcXdJ0WUN1uRgwUQYD
+   VR0jBEowSIAUrqlIoIy46heSFbjcXdJ0WUN1uRihGqQYMBYxFDASBgNVBAMMC0Vh
+   c3ktUlNBIENBghRaYUaUzVThJnYzRzpXaxMzRTU5vjAMBgNVHRMEBTADAQH/MAsG
+   A1UdDwQEAwIBBjAKBggqhkjOPQQDBANpADBmAjEAl2SJOpGzWkGEF5PWgX6RtIb/
+   TXYWOs6Uk0W/rXVESQDqwlHLE2mB0SgwQ9/CxGKLAjEA4kvIPaJ2lhwjmh1fZHWk
+   o3qpuKvThkHMtFnMzaqExXSzIFJaZ0ISs4QneLJ8cDCh
+   -----END CERTIFICATE-----
